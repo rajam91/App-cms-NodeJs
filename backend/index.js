@@ -7,6 +7,7 @@ import {dirname, join} from 'path';
 import {fileURLToPath} from 'url';
 import router from "./routes/users-routes.js";
 import authrouter from "./routes/auth-routes.js";
+import userRouter from "./routes/users-routes.js";
 
 
 const app = express();
@@ -27,13 +28,9 @@ app.use(cookieParser());
 
 app.use('/',express.static(join(__dirname, 'public')));
 
-app.use('/api/users', router);
+app.use('/api/users', userRouter);
 app.use('/api/auth', authrouter);
-
-
-
-
-
+app.use('api/articles',router)
 
 app.listen(Port, ()=> console.log(`Server is listening on ${Port}`));
 

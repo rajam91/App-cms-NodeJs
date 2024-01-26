@@ -16,15 +16,6 @@ router.get('/',authenticateToken,async(req, res)=> // récup tout les users de l
     }
 
 })
-export default router;
-
-/*router.post('/SignIn', async (req, res) => { // ajout d'un user dans la bdd
-    try {
-        const email = req.body.email;
-        const password = req.body.password;
-        
-    }
-});*/
 
 router.post('/', async (req, res) => {
     try {
@@ -37,5 +28,19 @@ router.post('/', async (req, res) => {
         res.status(500).json({error: error.message});
     }
    
-})
+});
 
+router.get('/artciles', authenticateToken, async (req, res) => {
+    try {
+        // Récupérez les données de la page en utilisant l'api builder
+        const builderApiResponse = await axios.get('https://cdn.builder.io/api/v3/content/articles?apiKey=6e139f4f71454a88b3f01ee85b1a35b5');
+
+        const pageData = builderApiResponse.data;
+
+        res.json(pageData);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+export default router;
