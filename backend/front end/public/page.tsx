@@ -6,7 +6,7 @@ const Home = () => {
     const [articles, setArticles] = useState([]);
   
     useEffect(() => {
-      // Fonction pour récupérer les articles
+      // Fonction pour récupérer les articles du lien fournit 
       const fetchArticles = async () => {
         try {
           const response = await axios.get('/api/users/articles', { withCredentials: true });
@@ -17,5 +17,16 @@ const Home = () => {
       };
       fetchArticles();
     }, []);
+
+    
+
+
+
+
+
+
+
+
+    
 }  
 

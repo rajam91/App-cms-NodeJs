@@ -2,7 +2,7 @@
 
 ## BackEnd
 
-L'objectif de ce test technique est de créer une application web qui récupère des articles d'un CMS qui comprends un système de création de compte et d'authentification.
+L'objectif de ce test technique est de créer une application web qui récupère des articles d'un CMS qui comprends un système de création de compte et d'authentification. 
 
 Le back end à été fait en NodeJs avec express.
 
@@ -46,10 +46,23 @@ brew install postgresql
 Pour les utilisateur windows : https://www.postgresql.org/download/windows/.
 
 
-#### Petites Explications 
+#### Petites Explications... 
+
+Le projet n'a pas aboutit et malgré mes erreurs,comme on le dit en anglais "Every day is a school day", j'ai pu apprendre beaucoup de choses, même si je n'ai pas pu le finir en trois jour je vais sûrement le continuer. 
+
+Je vous envoie tout de même ce qui à été fait.
 
 J'ai architecturer mon projet de sorte à avoir un code plus facile à modifier et avoir une structure plus logique.
 
-Index.js étant le fichier d'application.
+```Index.js``` étant le fichier d'application.
 
 Le dossier routes contient deux fichiers qui sont responsable de la définition de routes pour l'authentification et gestion d'utilisateur.
+
+Le fichier ```db.js``` contient l'importation de 'pool' de la bibliothèque de psql. On l'utilise pour gérer les connexions à la base de donnée.
+
+On commence par l'importation de la bibliothèque 'pg', c'est ce qui fournit des fonctionnalités pour intéragir avec une database.
+
+
+#### Mot de la fin 
+
+J'ai pris énormément de temps à me documenter et plus de 2j/3 sur le back end malgré les deadlines que je me suis imposée.
