@@ -5,8 +5,8 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser"; //faciliter la manipulation des cookies  
 import {dirname, join} from 'path';
 import {fileURLToPath} from 'url';
-import bcrypt from "bcrypt";
 import router from "./routes/users-routes.js";
+import authrouter from "./routes/auth-routes.js";
 
 
 const app = express();
@@ -27,8 +27,13 @@ app.use(cookieParser());
 
 app.use('/',express.static(join(__dirname, 'public')));
 
-
 app.use('/api/users', router);
+app.use('/api/auth', authrouter);
+
+
+
+
+
 
 app.listen(Port, ()=> console.log(`Server is listening on ${Port}`));
 
