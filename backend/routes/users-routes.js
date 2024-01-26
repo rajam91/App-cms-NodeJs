@@ -17,7 +17,7 @@ router.get('/',authenticateToken,async(req, res)=> // récup tout les users de l
 
 })
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => { // créer un nouveau user
     try {
         const hashedPassword = await bcrypt.hash(req.body.password,10);
         const newUser = await pool.query('INSERT INTO users(user_name,user_email,user_password) VALUES ($1, $2, $3) RETURNING *',
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 
 router.get('/artciles', authenticateToken, async (req, res) => {
     try {
-        // Récupérez les données de la page en utilisant l'api builder
+        // Récuples données de la page en utilisant l'api builder
         const builderApiResponse = await axios.get('https://cdn.builder.io/api/v3/content/articles?apiKey=6e139f4f71454a88b3f01ee85b1a35b5');
 
         const pageData = builderApiResponse.data;

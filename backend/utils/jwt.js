@@ -10,3 +10,5 @@ function jwtTokens({user_id,user_name,user_email}) {
 
 export {jwtTokens};
 
+// Ce script définit une fonction jwtTokens qui génère des JWT 
+// avec une clé secrète

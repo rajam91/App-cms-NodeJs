@@ -1,12 +1,12 @@
 import express from 'express'; // import le framework express
-import pool from '../db.js';  //  import pool de la base de donnée
-import bcrypt from 'bcrypt';
+import pool from '../db.js';  //  import pool, connection à la base de donnée
+import bcrypt from 'bcrypt'; // hasher le mdp
 import jwt from 'jsonwebtoken';
-import {jwtTokens} from '../utils/jwt.js';
+import {jwtTokens} from '../utils/jwt.js'; // pour générer les JWT
 
 const router = express.Router();
 
-router.post('/login', async (req, res) => {
+router.post('/login', async (req, res) => { // route pour la connection
     try {
         const { email, password } = req.body;
         const user = await pool.query('SELECT * FROM users WHERE user_email = $1', [email]);
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/refresh_token', (req, res) => {
+router.get('/refresh_token', (req, res) => { // obtenir un nouveau JWT à partir d'un refresh token 
     try {
         const refreshToken = req.cookies.refresh_token;
 
@@ -42,7 +42,7 @@ router.get('/refresh_token', (req, res) => {
     }
 });
 
-router.delete('/logout', (req, res) => {
+router.delete('/logout', (req, res) => { // route pour déconnecter
     try {
         res.clearCookie('refresh_token');
         return res.status(200).json({ message: 'Refresh token deleted' });
@@ -52,3 +52,5 @@ router.delete('/logout', (req, res) => {
 });
 
 export default router;
+
+//

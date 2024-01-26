@@ -45,10 +45,13 @@ brew install postgresql
 ```
 Pour les utilisateur windows : https://www.postgresql.org/download/windows/.
 
+Pour lancer le projet , on utilise la commande ```npm run dev``` dans le terminal.
+
+
 
 #### Petites Explications... 
 
-Le projet n'a pas aboutit et malgré mes erreurs,comme on le dit en anglais "Every day is a school day", j'ai pu apprendre beaucoup de choses, même si je n'ai pas pu le finir en trois jour je vais sûrement le continuer. 
+Le projet n'a pas aboutit et malgré mes erreurs,comme on le dit en anglais "Everyday is a school day", j'ai pu apprendre beaucoup de choses, même si je n'ai pas pu le finir en trois jour je vais sûrement le continuer. 
 
 Je vous envoie tout de même ce qui à été fait.
 
@@ -58,11 +61,24 @@ J'ai architecturer mon projet de sorte à avoir un code plus facile à modifier 
 
 Le dossier routes contient deux fichiers qui sont responsable de la définition de routes pour l'authentification et gestion d'utilisateur.
 
+On y trouve le fichier ```auth-routes.js``` et ```users-routes.js```
+
 Le fichier ```db.js``` contient l'importation de 'pool' de la bibliothèque de psql. On l'utilise pour gérer les connexions à la base de donnée.
 
-On commence par l'importation de la bibliothèque 'pg', c'est ce qui fournit des fonctionnalités pour intéragir avec une database.
+Pool offre une gestion plus efficace et optimisée des connection à la database. 
+
+On commence par l'importation de la bibliothèque 'pg', c'est ce qui fournit des fonctionnalités pour intéragir avec une database. 
+
+
+J'ai également découvert la notion de middleware dans ce projet.
+
+Le middleware est donc une fonction qui a accès à l'objet de demande (request), à l'objet de réponse (response), et à la fonction suivante de la demande/réponse d'une application web.
 
 
 #### Mot de la fin 
 
-J'ai pris énormément de temps à me documenter et plus de 2j/3 sur le back end malgré les deadlines que je me suis imposée.
+J'ai pris énormément de temps à me documenter et j'ai passé plus de temps sur le back end , malgré les deadlines que je me suis imposée.
+
+
+Si vous avez des questions n'hésitez pas à me contacter marwah01@outlook.fr
+
