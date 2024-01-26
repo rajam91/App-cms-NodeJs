@@ -1,5 +1,6 @@
 import express from 'express'; // import le framework express
 import pool from '../db.js';  //  import pool de la base de donnée
+import bcrypt from 'bcrypt';
 
 const router = express.Router(); // créer un routeur express
 
@@ -16,9 +17,6 @@ router.get('/',async(req, res)=> // récup tout les users de la bdd
 })
 export default router;
 
-
-
-
 /*router.post('/SignIn', async (req, res) => { // ajout d'un user dans la bdd
     try {
         const email = req.body.email;
@@ -27,4 +25,14 @@ export default router;
     }
 });*/
 
+
+router.post('/', async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password,10);
+
+    } catch (error) {
+
+    }
+   
+})
 
